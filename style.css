@@ -1,0 +1,316 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; }
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+.screen--active { display: block; }
+
+.bg {
+  position: absolute; inset: 0;
+  background: url("assets/fondo.png") center/cover no-repeat;
+  transform: scale(1.02);
+}
+
+.overlay {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.60));
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  text-shadow: 0 1px 10px rgba(0,0,0,.15);
+}
+
+.envelope {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  transition: transform .2s ease;
+}
+.envelope:active { transform: scale(0.98); }
+.envelope[disabled] { opacity: 0.9; cursor: default; }
+
+.envelope img {
+  width: min(320px, 75vw);
+  height: auto;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.25));
+}
+
+.tap { font-size: 14px; opacity: .95; }
+
+
+
+.inviteWrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: #f7f7f7;
+}
+
+.inviteImg {
+  width: min(520px, 92vw);
+  border-radius: 18px;
+  box-shadow: 0 20px 35px rgba(0,0,0,.18);
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  width: min(520px, 92vw);
+}
+
+.btn, .back {
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  color: #111;
+  font-weight: 700;
+}
+
+/* ===== Modal genérico (si no lo tienes ya) ===== */
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.modal.modal--open{ display: block; }
+
+.modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+}
+
+.modal__card{
+  position: relative;
+  width: min(520px, 92vw);
+  margin: 18vh auto 0;
+  background: rgba(255,255,255,.95);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+  text-align: center;
+}
+
+.modalSelect{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  margin: 10px 0 12px;
+  font-size: 16px;
+}
+
+.modalActions{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.modalBtn{
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  font-weight: 700;
+}
+
+.modalBtn--ghost{
+  background: rgba(255,255,255,.6);
+}
+
+.pasesTxt{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   VIDEO INTRO FULLSCREEN
+   ========================= */
+.videoIntro{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9998;
+  background: #000;
+  overflow: hidden; /* CLAVE: recorta lo que sobresalga */
+}
+
+.videoIntro.videoIntro--open{
+  display: block;
+}
+
+.videoIntro__video{
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;           
+  object-position: center 41%; /* sube o baja el encuadre */
+
+  transform: scale(1.18);      /* sube más si aún se ve negro */
+}
+
+.videoIntro__skip{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,0.90);
+  font-weight: 700;
+}
+
+/* =========================
+   TRANSICIONES SUAVES
+   ========================= */
+
+/* Pantallas (intro / invite): fade */
+.screen{
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 380ms ease, transform 380ms ease;
+}
+
+.screen--active{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Video overlay: fade + zoom */
+.videoIntro{
+  display: block;              /* OJO: ya no usamos display none */
+  pointer-events: none;        /* para que no estorbe cuando está cerrado */
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.videoIntro.videoIntro--open{
+  pointer-events: auto;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.videoIntro__video{
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.videoIntro.videoIntro--open .videoIntro__video{
+  opacity: 1;
+}
+
+/* Opcional: que el fondo no “salte” con scroll en cambios */
+html, body{
+  scroll-behavior: smooth;
+}
+
+.envelope{
+  transition: transform 220ms ease, filter 220ms ease;
+}
+.envelope:hover{
+  transform: translateY(-2px);
+}
+.envelope:active{
+  transform: scale(0.97);
+}
+
+.inviteVideoWrap {
+  position: relative;
+  width: min(520px, 92vw);
+}
+
+.inviteVideoWrap video,
+.inviteVideoWrap img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+
+.inviteVideoWrap video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.inviteVideoWrap{
+  position: relative;
+  width: min(520px, 92vw);
+  border-radius: 18px;
+  overflow: hidden;        /* CLAVE: recorta lo que sobra */
+  box-shadow: 0 20px 35px rgba(0,0,0,.18);
+}
+
+/* El video y la imagen deben ocupar exactamente el mismo espacio */
+.inviteVideoWrap video,
+.inviteVideoWrap img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* VIDEO encima, ajustado */
+.inviteVideoWrap video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* CLAVE: llena y recorta, adiós franjas */
+  object-position: center; /* centra el recorte */
+  z-index: 2;
+}
+
+/* IMAGEN debajo */
+.inviteVideoWrap img{
+  position: relative;
+  z-index: 1;
+}
+
+.inviteVideoWrap video{
+  pointer-events: auto; /* para poder tocar el video y repetir */
+}
+
+.envelope img{
+  mix-blend-mode: multiply;
+}
+.envelope img{
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+
+.envelope:hover{
+  transform: translateY(-3px);
+}
+.envelope:active{
+  transform: scale(0.96);
+}
+

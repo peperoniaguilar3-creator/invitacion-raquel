@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invitación - Arca de Noé</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- =====================
+     PANTALLA 1 · INTRO
+===================== -->
+<main id="intro" class="screen screen--active" aria-hidden="false">
+  <div class="bg" aria-label="Fondo Arca de Noé"></div>
+
+  <div class="overlay">
+    <h1 class="title">¡Tienes una invitación especial!</h1>
+
+    <button id="envelopeBtn" class="envelope" type="button">
+      <img id="envelopeImg" src="assets/sobre-cerrado.png" alt="Sobre" />
+      <span class="tap">Toca el sobre</span>
+    </button>
+    <audio id="bgm" src="assets/musica.mp3" preload="auto" loop></audio>
+  </div>
+</main>
+
+<!-- =====================
+     PANTALLA 2 · INVITACIÓN
+===================== -->
+<section id="invite" class="screen" aria-hidden="true">
+  <div class="inviteWrap">
+
+    <div class="inviteVideoWrap">
+      <video
+        id="inviteVideo"
+        src="assets/animacion-animales.mp4"
+        playsinline
+        muted
+      ></video>
+
+      <img
+        class="inviteImg"
+        src="assets/invitacion.png"
+        alt="Invitación"
+      />
+    </div>
+
+    <div class="actions">
+      <a class="btn"
+         href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20confirmo%20asistencia%20al%20cumple%20de%20Raquel"
+         target="_blank" rel="noopener">
+        Confirmar asistencia
+      </a>
+
+      <a class="btn"
+         href="https://maps.app.goo.gl/HqvjdKcRWmxQu72f6"
+         target="_blank" rel="noopener">
+        Ver ubicación
+      </a>
+
+      <button class="btn" id="btnPases" type="button">
+        Pases / Menú
+      </button>
+    </div>
+
+    <button id="backBtn" class="back" type="button">← Volver</button>
+  </div>
+</section>
+
+
+<!-- =====================
+     MODAL · ELEGIR PASES
+===================== -->
+<div id="modalPases" class="modal" aria-hidden="true">
+  <div class="modal__backdrop" id="pasesBackdrop"></div>
+
+  <div class="modal__card">
+    <h2>🎟️ Selecciona cuántos pases</h2>
+    <p>El máximo es 8 pases.</p>
+
+    <select id="pasesSelect" class="modalSelect">
+      <option value="1">1 pase</option>
+      <option value="2">2 pases</option>
+      <option value="3">3 pases</option>
+      <option value="4">4 pases</option>
+      <option value="5">5 pases</option>
+      <option value="6">6 pases</option>
+      <option value="7">7 pases</option>
+      <option value="8">8 pases</option>
+    </select>
+
+    <div class="modalActions">
+      <button id="confirmPases" class="modalBtn" type="button">Confirmar</button>
+      <button id="closePases" class="modalBtn modalBtn--ghost" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- =====================
+     PANTALLA 3 · PASES
+===================== -->
+<section id="pases" class="screen" aria-hidden="true">
+  <div class="bg" aria-label="Fondo Arca de Noé"></div>
+
+  <div class="overlay">
+    <h1 class="title" id="pasesTitulo">🎟️ Tus pases</h1>
+    <p class="pasesTxt" id="pasesTxt">Tienes 1 pase</p>
+
+    <a class="btn" id="btnVerPlatillos" href="TU_LINK_DE_PLATILLOS" target="_blank" rel="noopener">
+      Ver platillos
+    </a>
+
+    <button id="backToInvite" class="back" type="button">← Volver</button>
+  </div>
+</section>
+
+<!-- =====================
+     VIDEO INTRO (ARCA)
+===================== -->
+<div id="videoIntro" class="videoIntro" aria-hidden="true">
+  <video id="introVideo" class="videoIntro__video" playsinline preload="auto">
+    <source src="assets/intro.mp4" type="video/mp4" />
+    Tu navegador no soporta video.
+  </video>
+
+  <button id="skipVideo" class="videoIntro__skip" type="button">Saltar</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
