@@ -86,7 +86,7 @@ introVideo.addEventListener("ended", () => {
 
 // ===== SOBRE =====
 envelopeBtn.addEventListener("click", async () => {
-  envelopeImg.src = "assets/sobre-abierto.png";
+  envelopeImg.src = "sobre-abierto.png";
   envelopeBtn.disabled = true;
 
   await new Promise(r => setTimeout(r, 600));
@@ -97,7 +97,7 @@ envelopeBtn.addEventListener("click", async () => {
 
 // ===== VOLVER =====
 backBtn.addEventListener("click", () => {
-  envelopeImg.src = "assets/sobre-cerrado.png";
+  envelopeImg.src = "sobre-cerrado.png";
   showIntro();
 });
 
@@ -167,4 +167,5 @@ inviteVideo.addEventListener("click", () => {
     showPasesScreen();
   });
 })();
+
 
