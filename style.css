@@ -11,7 +11,7 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 
 .bg {
   position: absolute; inset: 0;
-  background: url("assets/fondo.png") center/cover no-repeat;
+  background: url("fondo.png") center/cover no-repeat;
   transform: scale(1.02);
 }
 
@@ -313,4 +313,5 @@ html, body{
 .envelope:active{
   transform: scale(0.96);
 }
+
 
