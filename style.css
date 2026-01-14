@@ -366,6 +366,16 @@ html, body{
   transform: scale(0.96);
 }
 
+/* ===== FONDO GENERAL ROSADO SUAVE ===== */
+body {
+  background: linear-gradient(
+    180deg,
+    #fde8e2 0%,
+    #f9ddd3 40%,
+    #f6cfc0 100%
+  );
+}
+
 
 
 
