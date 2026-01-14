@@ -78,14 +78,45 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 .btn, .back {
   text-decoration: none;
   text-align: center;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 0;
+  padding: 14px 18px;
+  border-radius: 22px;
+  border: none;
   cursor: pointer;
-  background: white;
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
-  color: #111;
+
+  /* Fondo elegante */
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f6f1ee 100%
+  );
+
+  /* Sombra suave */
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  color: #6a4a3c;
   font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.btn:active,
+.back:active {
+  transform: scale(0.97);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== Modal genérico (si no lo tienes ya) ===== */
@@ -313,5 +344,6 @@ html, body{
 .envelope:active{
   transform: scale(0.96);
 }
+
 
 
