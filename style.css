@@ -119,6 +119,15 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
     0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
+.btn--primary {
+  background: linear-gradient(
+    to bottom,
+    #f7e3d8,
+    #f1cfc2
+  );
+  color: #6b3f2c;
+}
+
 /* ===== Modal genérico (si no lo tienes ya) ===== */
 .modal{
   position: fixed;
@@ -344,6 +353,7 @@ html, body{
 .envelope:active{
   transform: scale(0.96);
 }
+
 
 
 
