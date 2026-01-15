@@ -37,6 +37,8 @@ function startMusic() {
 function showInvite() {
   intro.classList.remove("screen--active");
   invite.classList.add("screen--active");
+
+  playInviteVideoLoop(); // 👈 ESTA ES LA CLAVE
 }
 
 function showIntro() {
@@ -104,14 +106,14 @@ backBtn.addEventListener("click", () => {
 
 const inviteVideo = document.getElementById("inviteVideo");
 
-// Reproducir automáticamente al mostrar la invitación
-inviteVideo.play();
-
-// Al tocar el video, se reinicia
-inviteVideo.addEventListener("click", () => {
+function playInviteVideoLoop() {
+  if (!inviteVideo) return;
+  inviteVideo.loop = true;
   inviteVideo.currentTime = 0;
-  inviteVideo.play();
-});
+  inviteVideo.play().catch(() => {});
+}
+
+
 
 // ===== PASES / MENÚ =====
 (() => {
@@ -167,5 +169,6 @@ inviteVideo.addEventListener("click", () => {
     showPasesScreen();
   });
 })();
+
 
 
