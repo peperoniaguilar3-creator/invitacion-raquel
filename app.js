@@ -31,8 +31,6 @@ function startMusic() {
 }
 
 
-
-
 // ===== MOSTRAR / OCULTAR INVITACIÓN =====
 function showInvite() {
   intro.classList.remove("screen--active");
@@ -115,24 +113,104 @@ function playInviteVideoLoop() {
 
 
 
-// ===== PASES / MENÚ =====
+// ===== PASES FIJOS POR LINK (token) =====
 (() => {
   const btnPases = document.getElementById("btnPases");
-  const modalPases = document.getElementById("modalPases");
-  const pasesBackdrop = document.getElementById("pasesBackdrop");
-  const closePases = document.getElementById("closePases");
-  const confirmPases = document.getElementById("confirmPases");
-  const pasesSelect = document.getElementById("pasesSelect");
-
   const screenPases = document.getElementById("pases");
   const backToInvite = document.getElementById("backToInvite");
-  const pasesTxt = document.getElementById("pasesTxt");
 
-  // Si falta algo, avisamos en consola
-  if (!btnPases || !modalPases || !pasesBackdrop || !closePases || !confirmPases || !pasesSelect || !screenPases || !backToInvite || !pasesTxt) {
+  const pasesTxt = document.getElementById("pasesTxt");
+  const pasesTxt2 = document.getElementById("pasesTxt2");
+
+  if (!btnPases || !screenPases || !backToInvite || !pasesTxt || !pasesTxt2) {
     console.log("Faltan elementos de Pases. Revisa IDs en el HTML.");
     return;
   }
+
+  // 1) Mapa de tokens -> {adultos, ninos}
+  const PASES = {
+    R01: { adultos: 2, ninos: 0 },
+    R02: { adultos: 3, ninos: 1 },
+    R03: { adultos: 1, ninos: 2 },
+    R04: { adultos: 2, ninos: 0 },
+    R05: { adultos: 3, ninos: 0 },
+    R06: { adultos: 2, ninos: 2 },
+    R07: { adultos: 2, ninos: 1 },
+    R08: { adultos: 3, ninos: 0 },
+    R09: { adultos: 3, ninos: 0 },
+    R10: { adultos: 2, ninos: 1 },
+    R11: { adultos: 1, ninos: 0 },
+    R12: { adultos: 3, ninos: 0 },
+    R13: { adultos: 3, ninos: 2 },
+    R14: { adultos: 2, ninos: 2 },
+    R15: { adultos: 3, ninos: 1 },
+    R16: { adultos: 2, ninos: 1 },
+    R17: { adultos: 3, ninos: 2 },
+    R18: { adultos: 5, ninos: 0 },
+    R19: { adultos: 1, ninos: 0 },
+    R20: { adultos: 2, ninos: 0 },
+    R21: { adultos: 1, ninos: 0 },
+    R22: { adultos: 2, ninos: 1 },
+    R23: { adultos: 2, ninos: 3 },
+    R24: { adultos: 3, ninos: 1 },
+    R25: { adultos: 2, ninos: 1 },
+    R26: { adultos: 2, ninos: 0 },
+    R27: { adultos: 2, ninos: 0 },
+    R28: { adultos: 2, ninos: 1 },
+    R29: { adultos: 2, ninos: 1 }, // el que venía como "2PASES 1 NIÑO"
+    R30: { adultos: 2, ninos: 2 },
+    R31: { adultos: 1, ninos: 1 },
+    R32: { adultos: 3, ninos: 0 },
+    R33: { adultos: 2, ninos: 1 },
+    R34: { adultos: 2, ninos: 2 },
+    R35: { adultos: 2, ninos: 3 },
+    R36: { adultos: 2, ninos: 1 },
+    R37: { adultos: 1, ninos: 0 },
+    R38: { adultos: 1, ninos: 0 },
+    R39: { adultos: 2, ninos: 1 },
+    R40: { adultos: 2, ninos: 0 },
+    R41: { adultos: 2, ninos: 0 },
+  };
+
+  // 2) Leer token ?t=Rxx
+  const params = new URLSearchParams(window.location.search);
+  const token = (params.get("t") || "").toUpperCase();
+
+  function getAsignacion() {
+    const data = PASES[token];
+    if (!data) return null;
+    // Seguridad: máximo 8 en total
+    const total = data.adultos + data.ninos;
+    if (total > 8) return { ...data, total: 8 }; // (si algún día te pasas)
+    return { ...data, total };
+  }
+
+  function showPasesScreen() {
+    invite.classList.remove("screen--active");
+    screenPases.classList.add("screen--active");
+  }
+
+  btnPases.addEventListener("click", () => {
+    const asignacion = getAsignacion();
+    if (!asignacion) {
+      // Si el link no trae token válido
+      pasesTxt.textContent = "Link no válido o sin token.";
+      pasesTxt2.textContent = "Pide tu enlace correcto.";
+      showPasesScreen();
+      return;
+    }
+
+    pasesTxt.textContent = `Adultos: ${asignacion.adultos}`;
+    pasesTxt2.textContent = `Niños: ${asignacion.ninos}`;
+    showPasesScreen();
+  });
+
+  backToInvite.addEventListener("click", () => {
+    screenPases.classList.remove("screen--active");
+    invite.classList.add("screen--active");
+  });
+})();
+
 
   // Abrir modal
   btnPases.addEventListener("click", () => {
@@ -169,6 +247,7 @@ function playInviteVideoLoop() {
     showPasesScreen();
   });
 })();
+
 
 
 
