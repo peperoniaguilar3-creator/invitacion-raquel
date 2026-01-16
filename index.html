@@ -73,30 +73,25 @@
 <!-- =====================
      MODAL · ELEGIR PASES
 ===================== -->
-<div id="modalPases" class="modal" aria-hidden="true">
-  <div class="modal__backdrop" id="pasesBackdrop"></div>
+<button class="btn" id="btnPases" type="button">Pases</button>
 
-  <div class="modal__card">
-    <h2>🎟️ Selecciona cuántos pases por persona</h2>
-    <p>El máximo es 8 pases.</p>
+<section id="pases" class="screen" aria-hidden="true">
+  <div class="bg" aria-label="Fondo Arca de Noé"></div>
 
-    <select id="pasesSelect" class="modalSelect">
-      <option value="1">1 pase</option>
-      <option value="2">2 pases</option>
-      <option value="3">3 pases</option>
-      <option value="4">4 pases</option>
-      <option value="5">5 pases</option>
-      <option value="6">6 pases</option>
-      <option value="7">7 pases</option>
-      <option value="8">8 pases</option>
-    </select>
-    
-    <div class="modalActions">
-      <button id="confirmPases" class="modalBtn" type="button">Confirmar</button>
-      <button id="closePases" class="modalBtn modalBtn--ghost" type="button">Cancelar</button>
-    </div>
+  <div class="overlay">
+    <h1 class="title">🎟️ Tus pases</h1>
+
+    <p class="pasesTxt" id="pasesTxt"></p>
+    <p class="pasesTxt" id="pasesTxt2"></p>
+
+    <a class="btn" id="btnVerPlatillos" href="TU_LINK_DE_PLATILLOS" target="_blank" rel="noopener">
+      Ver platillos
+    </a>
+
+    <button id="backToInvite" class="back" type="button">← Volver</button>
   </div>
-</div>
+</section>
+
 
 <!-- =====================
      PANTALLA 3 · PASES
@@ -128,6 +123,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
