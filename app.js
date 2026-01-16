@@ -212,41 +212,8 @@ function playInviteVideoLoop() {
 })();
 
 
-  // Abrir modal
-  btnPases.addEventListener("click", () => {
-    modalPases.classList.add("modal--open");
-  });
 
-  // Cerrar modal
-  function closeModalPases() {
-    modalPases.classList.remove("modal--open");
-  }
-  closePases.addEventListener("click", closeModalPases);
-  pasesBackdrop.addEventListener("click", closeModalPases);
 
-  // Mostrar pantalla de Pases (oculta invitación)
-  function showPasesScreen() {
-    invite.classList.remove("screen--active");
-    screenPases.classList.add("screen--active");
-  }
-
-  // Volver a la invitación
-  backToInvite.addEventListener("click", () => {
-    screenPases.classList.remove("screen--active");
-    invite.classList.add("screen--active");
-  });
-
-  // Confirmar selección
-  confirmPases.addEventListener("click", () => {
-    let n = parseInt(pasesSelect.value, 10);
-    if (isNaN(n) || n < 1) n = 1;
-    if (n > 8) n = 8;
-
-    pasesTxt.textContent = `Tienes ${n} pase${n === 1 ? "" : "s"}`;
-    closeModalPases();
-    showPasesScreen();
-  });
-})();
 
 
 
