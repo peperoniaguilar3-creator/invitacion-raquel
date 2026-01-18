@@ -211,6 +211,45 @@ function playInviteVideoLoop() {
   });
 })();
 
+// ===== Guardar PASES como JPG =====
+(() => {
+  const btn = document.getElementById("btnSaveJpg");
+  const area = document.getElementById("pasesCapture");
+  if (!btn || !area) return;
+
+  btn.addEventListener("click", async () => {
+    try {
+      // oculta el botón para que no salga en la imagen
+      btn.style.display = "none";
+
+      const canvas = await html2canvas(area, {
+        backgroundColor: null, // respeta el fondo
+        scale: 2,              // más calidad
+        useCORS: true
+      });
+
+      // vuelve a mostrar el botón
+      btn.style.display = "";
+
+      // convertir a JPG
+      const jpgData = canvas.toDataURL("image/jpeg", 0.92);
+
+      // descargar
+      const a = document.createElement("a");
+      a.href = jpgData;
+      a.download = "pases-raquel.jpg";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (e) {
+      btn.style.display = "";
+      console.log(e);
+      alert("No se pudo guardar la imagen en este dispositivo. Intenta en Chrome.");
+    }
+  });
+})();
+
+
 
 
 
