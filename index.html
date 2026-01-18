@@ -76,11 +76,23 @@
 <section id="pases" class="screen" aria-hidden="true">
   <div class="bg" aria-label="Fondo Arca de Noé"></div>
 
-  <div class="overlay">
+  <div class="overlay" id="pasesCapture">
+    <!-- botón esquina -->
+    <button id="btnSaveJpg" class="saveBtn" type="button">Guardar JPG</button>
+
     <h1 class="title">🎟️ Tus pases</h1>
 
-    <p class="pasesTxt" id="pasesTxt"></p>
-    <p class="pasesTxt" id="pasesTxt2"></p>
+    <div class="pasesBox">
+      <div class="pasesRow">
+        <div class="pasesLabel">Adultos</div>
+        <div class="pasesValue" id="pasesTxt"></div>
+      </div>
+
+      <div class="pasesRow">
+        <div class="pasesLabel">Niños</div>
+        <div class="pasesValue" id="pasesTxt2"></div>
+      </div>
+    </div>
 
     <button id="backToInvite" class="back" type="button">← Volver</button>
   </div>
@@ -117,6 +129,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
