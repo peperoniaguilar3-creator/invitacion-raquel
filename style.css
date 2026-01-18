@@ -449,9 +449,13 @@ html, body{
 }
 
 .saveBtn:active{ transform: scale(0.98); }
-
-
-
+.pasesBox{
+  background: linear-gradient(
+    180deg,
+    rgba(255,245,248,.92),
+    rgba(255,255,255,.85)
+  );
+}
 
 
 
