@@ -381,6 +381,76 @@ html, body{
   padding: 10px;
 }
 
+/* ===== PASES: tipografía y presentación más formal ===== */
+#pases .overlay{
+  text-align: center;
+}
+
+/* Título "Tus pases" */
+#pases .title{
+  font-size: 34px;
+  letter-spacing: .2px;
+  font-weight: 800;
+  text-shadow: 0 2px 18px rgba(0,0,0,.12);
+  margin: 18px 0 26px;
+}
+
+/* Bloque de datos (Adultos / Niños) */
+.pasesBox{
+  width: min(520px, 92vw);
+  margin: 0 auto 26px;
+  padding: 18px 18px;
+  border-radius: 20px;
+
+  /* “tarjeta” elegante sin tapar el fondo */
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  border: 1px solid rgba(255,255,255,.55);
+}
+
+.pasesRow{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 10px;
+}
+
+.pasesLabel{
+  font-size: 18px;
+  font-weight: 700;
+  opacity: .9;
+}
+
+.pasesValue{
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* Botón guardar (esquina) */
+.saveBtn{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 9999;
+
+  border: 0;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: rgba(255, 210, 220, 0.92); /* rosadito */
+  color: #3b2a2f;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+
+.saveBtn:active{ transform: scale(0.98); }
+
+
 
 
 
