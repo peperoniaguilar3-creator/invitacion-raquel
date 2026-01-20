@@ -56,14 +56,13 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 
 .inviteWrap{
   min-height: 100vh;
-  position: relative;        /* 🔑 CLAVE */
-  display: flex;             /* 🔑 QUITAMOS GRID */
+  position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
 
-  padding: 90px 18px 18px;   /* espacio REAL para la foto */
-  background: transparent;
+  padding-top: 110px;   /* espacio real para la foto */
+  gap: 14px;
 }
 
 .inviteImg {
@@ -496,24 +495,22 @@ html, body{
 /* FOTO DE RAQUEL - OVALO */
 .fotoRaquel{
   position: absolute;
-  top: 90px;                /* 👈 AHORA SÍ BAJA */
+  top: 25px;           /* 👈 ajusta aquí fino */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20;
+  z-index: 30;
 }
 
 .fotoRaquel img{
   width: 110px;
   height: 145px;
-
   object-fit: cover;
   border-radius: 50% / 60%;
-
   border: none;
-  background: transparent;
-
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
+
 
 
 
