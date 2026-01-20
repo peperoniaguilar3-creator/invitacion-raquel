@@ -318,10 +318,10 @@ html, body{
 }
 
 .inviteVideoWrap{
-  position: relative;
+  position: relative;   /* CLAVE */
   width: min(520px, 92vw);
   border-radius: 18px;
-  overflow: hidden;        /* CLAVE: recorta lo que sobra */
+  overflow: hidden;
   box-shadow: 0 20px 35px rgba(0,0,0,.18);
 }
 
@@ -495,20 +495,23 @@ html, body{
 /* FOTO DE RAQUEL - OVALO */
 .fotoRaquel{
   position: absolute;
-  top: 8px;             /* 👈 AQUÍ */
+  top: 10px;            /* BAJA/SUBE AQUÍ */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 30;
+  z-index: 50;
+  pointer-events: none;
 }
 
 .fotoRaquel img{
-  width: 105px;
-  height: 140px;
+  width: 95px;          /* más pequeño */
+  height: 125px;
   object-fit: cover;
   border-radius: 50% / 60%;
-  border: none;
+  border: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
+
 
 
 
