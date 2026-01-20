@@ -492,27 +492,27 @@ html, body{
 
 /* FOTO DE RAQUEL - OVALO */
 .fotoRaquel{
-  display: flex;
-  justify-content: center;
-  margin-bottom: -40px; /* hace que se monte sobre la invitación */
-  z-index: 5;
-  position: relative;
+  position: absolute;
+  top: 0;                 /* YA NO negativo */
+  left: 50%;
+  transform: translate(-50%, -50%); /* mitad afuera, mitad dentro */
+  z-index: 20;
 }
 
 .fotoRaquel img{
-  width: 160px;
-  height: 200px;
+  width: 115px;      /* más pequeña */
+  height: 150px;
+
   object-fit: cover;
+  border-radius: 50% / 60%;
 
-  border-radius: 50% / 60%; /* OVALO */
-  border: 6px solid #fff;
+  border: none;      /* QUITA borde blanco */
+  background: transparent;
 
-  background: #fff;
-  box-shadow: 
-    0 12px 30px rgba(0,0,0,.18),
-    0 0 0 6px rgba(255,220,230,.7);
-
+  box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
+
 
 
 
