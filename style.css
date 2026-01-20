@@ -495,7 +495,7 @@ html, body{
 /* FOTO DE RAQUEL - OVALO */
 .fotoRaquel{
   position: absolute;
-  top: 16px;              /* 👈 AQUÍ */
+  top: 24px;             /* 👈 AQUÍ */
   left: 50%;
   transform: translateX(-50%);
   z-index: 30;
@@ -509,6 +509,7 @@ html, body{
   border: none;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
 
 
 
