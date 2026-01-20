@@ -499,13 +499,14 @@ html, body{
 }
 
 .fotoRaquel img{
-  width: 95px;          /* más pequeño */
-  height: 125px;
+  width: 70px;          /* más pequeño */
+  height: 90px;
   object-fit: cover;
   border-radius: 50% / 60%;
   border: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
 
 
 
