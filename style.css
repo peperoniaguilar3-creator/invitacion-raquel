@@ -55,13 +55,13 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 
 
 .inviteWrap{
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding-top: 110px;   /* espacio real para la foto */
+  padding-top: 140px; /* 👈 espacio reservado para la foto */
   gap: 14px;
 }
 
@@ -495,20 +495,22 @@ html, body{
 /* FOTO DE RAQUEL - OVALO */
 .fotoRaquel{
   position: absolute;
-  top: 25px;           /* 👈 ajusta aquí fino */
+  top: 16px;              /* 👈 AQUÍ */
   left: 50%;
   transform: translateX(-50%);
   z-index: 30;
 }
 
 .fotoRaquel img{
-  width: 110px;
-  height: 145px;
+  width: 105px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50% / 60%;
   border: none;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
+
 
 
 
