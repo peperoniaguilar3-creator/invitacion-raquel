@@ -58,7 +58,7 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
   align-content: start;   /* 👈 sube todo */
   justify-items: center;  /* mantiene centrado horizontal */
   gap: 14px;
-  padding-top: 8px; /* o 0 */
+  padding-top: 12px; /* o 0 */
 }
 
 .inviteImg {
@@ -499,13 +499,14 @@ html, body{
 }
 
 .fotoRaquel img{
-  width: 70px;          /* más pequeño */
-  height: 90px;
+  width: 60px;          /* más pequeño */
+  height: 80px;
   object-fit: cover;
   border-radius: 50% / 60%;
   border: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
 
 
 
