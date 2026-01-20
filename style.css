@@ -54,15 +54,13 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 
 
 
-.inviteWrap{
-  position: relative;
+.inviteWrap {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-top: 140px; /* 👈 espacio reservado para la foto */
+  display: grid;
+  align-content: start;   /* 👈 sube todo */
+  justify-items: center;  /* mantiene centrado horizontal */
   gap: 14px;
+  padding: 18px;
 }
 
 .inviteImg {
@@ -510,6 +508,7 @@ html, body{
   border: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
+
 
 
 
