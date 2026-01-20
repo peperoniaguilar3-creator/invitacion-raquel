@@ -490,6 +490,31 @@ html, body{
   -webkit-backdrop-filter: blur(6px);
 }
 
+/* FOTO DE RAQUEL - OVALO */
+.fotoRaquel{
+  display: flex;
+  justify-content: center;
+  margin-bottom: -40px; /* hace que se monte sobre la invitación */
+  z-index: 5;
+  position: relative;
+}
+
+.fotoRaquel img{
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+
+  border-radius: 50% / 60%; /* OVALO */
+  border: 6px solid #fff;
+
+  background: #fff;
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,.18),
+    0 0 0 6px rgba(255,220,230,.7);
+
+}
+
+
 
 
 
