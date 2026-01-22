@@ -488,6 +488,61 @@ html, body{
   -webkit-backdrop-filter: blur(6px);
 }
 
+.countdown{
+  width: min(520px, 92vw);
+  margin: 12px auto 22px;      /* abajo */
+  padding: 14px 14px;
+  border-radius: 18px;
+  text-align: center;
+
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 210, 220, .45);
+  box-shadow: 0 14px 30px rgba(0,0,0,.10);
+}
+
+.cdTitle{
+  font-weight: 800;
+  color: #6a3f2b;
+  margin-bottom: 10px;
+}
+
+.cdGrid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.cdBox{
+  border-radius: 16px;
+  padding: 10px 6px;
+  background: linear-gradient(to bottom, #fde2d6, #f6cfc0);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+.cdNum{
+  font-size: 22px;
+  font-weight: 900;
+  color: #6a3f2b;
+  line-height: 1;
+}
+
+.cdLbl{
+  font-size: 12px;
+  font-weight: 700;
+  opacity: .9;
+  margin-top: 6px;
+  color: #6a3f2b;
+}
+
+.cdNote{
+  margin-top: 10px;
+  font-weight: 900;
+  color: #6a3f2b;
+}
+
+
 
 
 
