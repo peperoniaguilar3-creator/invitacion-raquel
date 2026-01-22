@@ -31,11 +31,7 @@
 <section id="invite" class="screen" aria-hidden="true">
   <div class="inviteWrap">
 
-    <div class="inviteVideoWrap">
-      <div class="fotoRaquel">
-        <img src="raquel.jpeg" alt="Raquel">
-      </div>
-      
+    <div class="inviteVideoWrap">      
       <video
         id="inviteVideo"
         src="./animacion-animales.mp4"
@@ -70,6 +66,17 @@
     </div>
 
     <button id="backBtn" class="back" type="button">← Volver</button>
+    <div class="countdown" aria-label="Cuenta regresiva">
+  <div class="cdTitle">⏳ Faltan</div>
+
+  <div class="cdGrid">
+    <div class="cdBox"><div class="cdNum" id="cdDays">--</div><div class="cdLbl">Días</div></div>
+    <div class="cdBox"><div class="cdNum" id="cdHours">--</div><div class="cdLbl">Horas</div></div>
+    <div class="cdBox"><div class="cdNum" id="cdMins">--</div><div class="cdLbl">Min</div></div>
+    <div class="cdBox"><div class="cdNum" id="cdSecs">--</div><div class="cdLbl">Seg</div></div>
+  </div>
+
+  <div class="cdNote" id="cdDone" style="display:none;">🎉 ¡Hoy es el gran día!</div>
   </div>
 </section>
 
@@ -135,6 +142,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
