@@ -249,6 +249,53 @@ function playInviteVideoLoop() {
   });
 })();
 
+// ===== COUNTDOWN 01 FEB 2026 (Tuxtla / MX: -06) =====
+(function initCountdown(){
+  const elD = document.getElementById("cdDays");
+  const elH = document.getElementById("cdHours");
+  const elM = document.getElementById("cdMins");
+  const elS = document.getElementById("cdSecs");
+  const elDone = document.getElementById("cdDone");
+
+  if(!elD || !elH || !elM || !elS) return;
+
+  // 01 Feb 2026 00:00 en zona -06:00
+  const target = new Date("2026-02-01T11:30:00-06:00")
+
+  function pad(n){ return String(n).padStart(2,"0"); }
+
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+
+    if(diff <= 0){
+      elD.textContent = "0";
+      elH.textContent = "00";
+      elM.textContent = "00";
+      elS.textContent = "00";
+      if(elDone) elDone.style.display = "block";
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const mins = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+
+    elD.textContent = String(days);
+    elH.textContent = pad(hours);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
+
+    requestAnimationFrame(() => {}); // no hace nada, solo mantiene fluidez
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
 
 
 
