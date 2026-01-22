@@ -52,14 +52,14 @@ body { margin: 0; font-family: system-ui, Arial, sans-serif; }
 
 .tap { font-size: 14px; opacity: .95; }
 
-.inviteWrap {
+.inviteWrap{
   min-height: 100vh;
   display: grid;
-  align-content: start;   /* 👈 sube todo */
-  justify-items: center;  /* mantiene centrado horizontal */
+  place-items: center;
   gap: 14px;
-  padding-top: 14px; /* o 0 */
+  padding: 12px;   /* antes estaba en 18px */
 }
+
 
 .inviteImg {
   width: min(520px, 92vw);
@@ -486,25 +486,6 @@ html, body{
 
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-}
-
-/* FOTO DE RAQUEL - OVALO */
-.fotoRaquel{
-  position: absolute;
-  top: 0px;            /* BAJA/SUBE AQUÍ */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  pointer-events: none;
-}
-
-.fotoRaquel img{
-  width: 80px;          /* más pequeño */
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50% / 60%;
-  border: 0;
-  box-shadow: 0 14px 28px rgba(0,0,0,.25);
 }
 
 
